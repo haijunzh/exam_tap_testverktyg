@@ -32,4 +32,3 @@ def test_bookstore_favorite_books__integration():
 
     # Assert that the book is removed from the favorites list
     assert store.books[book_id] not in favorite_books.favorites
-    
