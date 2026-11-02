@@ -19,3 +19,7 @@ Svara kortfattat på följande frågor i ANSWERS.md för att demonstrera dina ku
 2.	Beskriv hur det går till när man arbetar med TDD.
 3.	Beskriv hur BDD skiljer sig från TDD.
 4.	Tänk dig att du skulle göra en webbsida som liknar Läslistan, både frontend och backend. Om du fick välja förutsättningslöst, vilka sorters tester skulle du vilja använda? Motivera ditt val.
+
+## Frontend
+För frontend-delen ska du börja med att beskriva existerande funktionalitet som funktionella krav. Dessa ska du skriva ner som user stories i STORIES.md. Sedan ska du skriva feature-filer för varje story och step-filer.
+
