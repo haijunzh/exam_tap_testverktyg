@@ -37,4 +37,4 @@ jobs:
 
           # 5. Kör tester (tips: använd markers)
           - name: Kör testerna med pytest
-            run: pytest --maxfail=1 --disable-warnings -q
+            run: xvfb-run --auto-servernumpytest --maxfail=1 --disable-warnings -q
