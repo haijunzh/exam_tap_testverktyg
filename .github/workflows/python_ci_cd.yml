@@ -12,11 +12,11 @@ jobs:
         steps:
           # 1. Hämta koden
           - name: Checka ut koden från repot
-            uses: actions/checkout@v7
+            uses: actions/checkout@v4
 
           # 2. Installera Python
           - name: Inställningar för Python
-            uses: actions/setup-python@v7
+            uses: actions/setup-python@v5
             with:
               python-version: '3.14'
 
@@ -26,6 +26,10 @@ jobs:
               python -m pip install --upgrade pip
               pip install -r requirements.txt
               pip install flake8 pytest
+
+          # 3.5 Installera Playwright-webbläsare och beroenden
+          - name: Installera Playwright Browsers & Dependencies
+            run: playwright install --with-deps
 
           # 4. Linting
           - name: Linta koden med flake8
