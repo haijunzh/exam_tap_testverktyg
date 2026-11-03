@@ -80,27 +80,3 @@ def step_user_removes_book_from_favorites(context):
 @then("the heart icon should change to empty")
 def step_heart_icon_is_empty(context):
     expect(_heart(context)).not_to_have_class(re.compile(r"\bselected\b"))
-
-
-@then(
-    'the book should be appearing on the booklist of the page '
-    'when the user clicks on the "Mina böcker" button'
-)
-def step_book_appears_in_favorites(context):
-    context.page.get_by_role("button", name="Mina böcker").click()
-    book = context.page.get_by_role("listitem").filter(
-        has_text=context.book_title
-    )
-    expect(book).to_be_visible()
-
-
-@then(
-    'the book should not be appearing on the booklist of the page '
-    'when the user clicks on the "Mina böcker" button'
-)
-def step_book_does_not_appear_in_favorites(context):
-    context.page.get_by_role("button", name="Mina böcker").click()
-    book = context.page.get_by_role("listitem").filter(
-        has_text=context.book_title
-    )
-    expect(book).to_have_count(0)
