@@ -9,12 +9,17 @@
 
 Feature: View favorite books
 
-  Scenario: User views a book in their favorites
+  Scenario Outline: User views a book in their favorites
     Given the user is on the start page
     When the user clicks on the "Katalog" button
-    And the user is viewing a specific book "The Bugs are Coming" in the catalogue with the cursor hovering over the book's title and author
+    And the user is viewing a specific book "<title>" in the catalogue with the cursor hovering over the book's title and author
     And the user clicks the appearing heart icon beside the book to mark it as a favorite
     Then the book should be appearing on the booklist of the page when the user clicks on the "Mina böcker" button
+
+    Examples:
+      | title                       |
+      | The Pragmatic Procrastinator |
+      | The Bugs are Coming          |
 
   Scenario: User views favorites when none have been selected
     Given the user is on the start page

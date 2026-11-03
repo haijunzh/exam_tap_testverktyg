@@ -5,6 +5,11 @@ from playwright.sync_api import expect
 @when('the user clicks on the "Lägg till bok" button')
 def step_user_opens_add_book_form(context):
     context.page.get_by_role("button", name="Lägg till bok").click()
+    expect(context.page.get_by_role("textbox", name="Titel")).to_be_visible()
+    expect(context.page.get_by_role("textbox", name="Författare")).to_be_visible()
+    expect(
+        context.page.get_by_role("button", name="Lägg till ny bok")
+    ).to_be_disabled()
 
 
 @when('the user enters "{value}" in the "{field}" input field')

@@ -14,22 +14,27 @@ Feature: Add a book to the catalogue
     Given the user is on the start page
     When the user clicks on the "Lägg till bok" button
 
-  Scenario: User adds a book with a title and author
-    When the user enters "Mio, Mio" in the "Titel" input field
-    And the user enters "Astrid Lindgren" in the "Författare" input field
+  Scenario Outline: User adds a book with a title and author
+    When the user enters "<title>" in the "Titel" input field
+    And the user enters "<author>" in the "Författare" input field
     And the user clicks on the "Lägg till ny bok" button
     And the user clicks on the "Katalog" button
-    Then the user should see a book with the title "Mio, Mio" and author "Astrid Lindgren" in the catalogue
+    Then the user should see a book with the title "<title>" and author "<author>" in the catalogue
 
-  Scenario: User cannot add a book without a title
-    When the user leaves the "Titel" input field blank
-    And the user enters "Astrid Lindgren" in the "Författare" input field
+    Examples:
+      | title                           | author          |
+      | Mio, Mio                        | Astrid Lindgren |
+      | The Wonderful Wizard of Oz      | L. Frank Baum   |
+
+  Scenario Outline: User cannot add a book when a required field is blank
+    When the user leaves the "<blank_field>" input field blank
+    And the user enters "<value>" in the "<filled_field>" input field
     Then the "Lägg till ny bok" button should be disabled
 
-  Scenario: User cannot add a book without an author
-    When the user enters "Mio, Mio" in the "Titel" input field
-    And the user leaves the "Författare" input field blank
-    Then the "Lägg till ny bok" button should be disabled
+    Examples:
+      | blank_field | filled_field | value           |
+      | Titel       | Författare   | Astrid Lindgren |
+      | Författare  | Titel        | Mio, Mio        |
 
   Scenario: User cannot add a book when both fields are blank
     Then the "Lägg till ny bok" button should be disabled
