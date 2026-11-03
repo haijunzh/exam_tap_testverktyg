@@ -23,3 +23,21 @@ Svara kortfattat på följande frågor i ANSWERS.md för att demonstrera dina ku
 ## Frontend
 För frontend-delen ska du börja med att beskriva existerande funktionalitet som funktionella krav. Dessa ska du skriva ner som user stories i STORIES.md. Sedan ska du skriva feature-filer för varje story och step-filer.
 
+## Vad jag har testat
+* Backend
+    * tests/unit/
+    * tests/integration/
+* Frontend: e2e test med Playwright and Behave
+    * view_catalogue
+    * view_favorite_books
+    * add_new_book
+
+## Hur man startar projektet
+* Kör lokalt
+
+```bash
+python -m pytest
+python -m behave src/features
+```
+
+* Alla tester körs automatiskt efter push till GitHub. Se https://github.com/haijunzh/exam_tap_testverktyg/actions/ 
