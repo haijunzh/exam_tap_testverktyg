@@ -34,6 +34,4 @@ def step_user_sees_added_book(context, title, author):
 
 @then('the "Lägg till ny bok" button should be disabled')
 def step_add_book_button_is_disabled(context):
-    expect(
-        context.page.get_by_role("button", name="Lägg till ny bok")
-    ).to_be_disabled()
+    expect(context.page.get_by_role("button", name="Lägg till ny bok")).to_be_disabled()
