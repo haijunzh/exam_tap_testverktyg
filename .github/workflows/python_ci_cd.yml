@@ -38,3 +38,7 @@ jobs:
           # 5. Kör tester (tips: använd markers)
           - name: Kör testerna med pytest
             run: pytest --maxfail=1 --disable-warnings -q
+
+          # 6. Kör behave
+          - name: Run BDD scenarios with Behave
+            run: python -m behave src/features
